@@ -28,5 +28,14 @@ public class ApplicationTest {
         Assert.assertEquals(response.getStatusCode(),HttpStatus.OK);
         Assert.assertEquals(response.getBody(),"Hello Docker");
     }
+    
+    
+    @Test
+    public void testFail() {
+        ResponseEntity<String> response = this.restTemplate.getForEntity(
+            "/", String.class);
+        Assert.assertEquals(response.getStatusCode(),HttpStatus.OK);
+        Assert.assertEquals(response.getBody(),"HelloDocker");
+    }
 
 }
