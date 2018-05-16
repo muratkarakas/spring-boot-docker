@@ -2,3 +2,7 @@
 /.settings/
 /.classpath
 /.project
+src/.DS_Store
+.DS_Store
+.vscode/launch.test.json
+src/main/.DS_Store
