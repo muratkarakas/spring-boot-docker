@@ -3,6 +3,7 @@ node {
                def dockerHome = tool 'docker-latest'
                def mavenHome  = tool 'maven-latest'
                env.PATH = "${dockerHome}/bin:${mavenHome}/bin:${env.PATH}"
+               env.DOCKER_HOST = "unix:///var/run/docker.sock"
         }
 
         stage ('Build') {
