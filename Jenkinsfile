@@ -6,7 +6,7 @@ node {
         }
 
         stage ('Build') {
-	           sh  'mvn install  -Dmaven.test.failure.ignore=false' 
+	           sh  'mvn install  -Dmaven.test.failure.ignore=true' 
 			
         }
 
