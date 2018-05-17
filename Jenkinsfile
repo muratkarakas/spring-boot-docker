@@ -6,6 +6,10 @@ node {
                env.DOCKER_HOST = "unix:///var/run/docker.sock"
         }
 
+        stage('Checkout') {
+               checkout scm
+        }
+
         stage ('Build') {
 	           sh  'mvn install sonar:sonar  -Dmaven.test.failure.ignore=true' 
                archiveArtifacts "target/**/*"
