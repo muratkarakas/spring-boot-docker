@@ -7,12 +7,12 @@ node {
 
         stage ('Build') {
 	           sh  'mvn install  -Dmaven.test.failure.ignore=true' 
-               archive "target/**/*"
+               archiveArtifacts "target/**/*"
                junit 'target/surefire-reports/*.xml'
         }
 
         stage ('Docker Build') {
-               echo 'Docker Build Step'
+               sh 'mvn package docker:build'
         }
         stage ('Deploy') {
                echo 'Deploy Step'
