@@ -11,13 +11,13 @@ node {
         }
 
         stage ('Build') {
-	           sh  'mvn install sonar:sonar  -Dmaven.test.failure.ignore=true' 
+	       sh  'mvn install sonar:sonar  -Dmaven.test.failure.ignore=true' 
                archiveArtifacts "target/**/*"
                junit 'target/surefire-reports/*.xml'
         }
 
         stage ('Docker Build') {
-               sh 'docker images'
+               sh 'mvn docker:build -Dmaven.test.skip=true'
         }
         stage ('Deploy') {
                echo 'Deploy Step'
