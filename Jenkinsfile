@@ -12,7 +12,7 @@ node {
         }
 
         stage ('Docker Build') {
-               sh 'mvn package docker:build'
+               sh 'mvn package docker:build -Dmaven.test.skip=true'
         }
         stage ('Deploy') {
                echo 'Deploy Step'
