@@ -1,6 +1,4 @@
-pipeline {
-    agent any
-    stages {
+node {
         stage ('Initialize') {
                def dockerHome = tool 'docker-latest'
                def mavenHome  = tool 'maven-latest'
@@ -23,5 +21,5 @@ pipeline {
                echo 'Deploy Step'
            }
         }
-    }
+   
 }
