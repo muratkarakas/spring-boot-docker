@@ -6,20 +6,15 @@ node {
         }
 
         stage ('Build') {
-            steps {
-	              sh  'mvn install  -Dmaven.test.failure.ignore=false' 
-			}
+	           sh  'mvn install  -Dmaven.test.failure.ignore=false' 
+			
         }
 
         stage ('Docker Build') {
-            steps {
                echo 'Docker Build Step'
-            }
         }
         stage ('Deploy') {
-           steps {
                echo 'Deploy Step'
-           }
         }
    
 }
