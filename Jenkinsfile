@@ -14,14 +14,8 @@ node {
 	       sh  'mvn install allure:report sonar:sonar  -Dmaven.test.failure.ignore=true' 
            archiveArtifacts "target/**/*"
            junit 'target/surefire-reports/*.xml'
+           allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
         }
-
-
-        stage ('Publish Allure Report') {
-	       allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
-
-        }
-        
         
         
 
