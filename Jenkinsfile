@@ -10,11 +10,20 @@ node {
                checkout scm
         }
 
-        stage ('Build') {
-	       sh  'mvn install sonar:sonar  -Dmaven.test.failure.ignore=true' 
-               archiveArtifacts "target/**/*"
-               junit 'target/surefire-reports/*.xml'
+        stage ('Build and Run Tests') {
+	       sh  'mvn install allure:report sonar:sonar  -Dmaven.test.failure.ignore=true' 
+           archiveArtifacts "target/**/*"
+           junit 'target/surefire-reports/*.xml'
         }
+
+
+        stage ('Publish Allure Report') {
+	       allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+
+        }
+        
+        
+        
 
         stage ('Docker Build') {
                sh 'mvn docker:build -Dmaven.test.skip=true'
