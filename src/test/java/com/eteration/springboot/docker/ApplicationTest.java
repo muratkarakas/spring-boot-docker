@@ -25,8 +25,8 @@ public class ApplicationTest {
     public void test() {
         ResponseEntity<String> response = this.restTemplate.getForEntity(
             "/", String.class);
-        Assert.assertEquals(response.getStatusCode(),HttpStatus.OK);
-        Assert.assertEquals(response.getBody(),"Hello Docker");
+        Assert.assertEquals(HttpStatus.OK,response.getStatusCode());
+        Assert.assertEquals("Hello Docker",response.getBody());
     }
     
     
@@ -34,8 +34,8 @@ public class ApplicationTest {
     public void testFail() {
         ResponseEntity<String> response = this.restTemplate.getForEntity(
             "/", String.class);
-        Assert.assertEquals(response.getStatusCode(),HttpStatus.OK);
-        Assert.assertEquals(response.getBody(),"HelloDocker");
+        Assert.assertEquals(HttpStatus.OK,response.getStatusCode());
+        Assert.assertEquals("HelloDocker",response.getBody());
     }
 
 }
