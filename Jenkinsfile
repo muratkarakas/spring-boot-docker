@@ -11,7 +11,7 @@ node {
         }
 
         stage ('Build') {
-	       sh  'mvn install sonar:sonar  -Dmaven.test.failure.ignore=true' 
+	       sh  'mvn install allure:report sonar:sonar  -Dmaven.test.failure.ignore=true' 
                archiveArtifacts "target/**/*"
                junit 'target/surefire-reports/*.xml'
         }

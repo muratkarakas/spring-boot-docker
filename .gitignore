@@ -4,5 +4,6 @@
 /.project
 src/.DS_Store
 .DS_Store
+.allure
 .vscode/launch.test.json
 src/main/.DS_Store
