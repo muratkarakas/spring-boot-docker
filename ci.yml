@@ -29,7 +29,8 @@ services:
       - postgresql_data:/var/lib/postgresql/data
 
   jenkins:
-    image: jenkins/jenkins:lts
+    build:
+      context: jenkins/
     networks:
       - cinet
     user: root

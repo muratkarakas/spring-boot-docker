@@ -17,23 +17,23 @@ node {
            allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
         }
         
-        stage('Send Results'){
-            echo currentBuild.result
-            emailext body: '$DEFAULT_CONTENT', recipientProviders: [brokenTestsSuspects(), brokenBuildSuspects(), developers()], subject: '$DEFAULT_SUBJECT'
-            
-        }
-
-        
 
         stage ('Docker Build') {
                sh 'mvn docker:build -Dmaven.test.skip=true'
         }
         
+        
+        stage('Notify Results'){
+            echo currentBuild.result
+            emailext body: '$DEFAULT_CONTENT', recipientProviders: [brokenTestsSuspects(), brokenBuildSuspects(), developers()], subject: '$DEFAULT_SUBJECT'
+            
+        }
+        
         stage ('Stop Old Containers') {
-               //sh 'docker-compose down'
+               sh 'docker-compose down'
         }
         stage ('Start New Containers') {
-               //sh 'docker-compose up'
+               sh 'docker-compose up'
         }
    
 }
