@@ -28,8 +28,12 @@ node {
         stage ('Docker Build') {
                sh 'mvn docker:build -Dmaven.test.skip=true'
         }
-        stage ('Deploy') {
-               echo 'Deploy Step'
+        
+        stage ('Stop Old Containers') {
+               sh 'docker-compose down'
+        }
+        stage ('Start New Containers') {
+               sh 'docker-compose up'
         }
    
 }
