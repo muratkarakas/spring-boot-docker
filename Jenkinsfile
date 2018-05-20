@@ -17,6 +17,11 @@ node {
            allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
         }
         
+        stage(){
+       	    echo currentBuild
+            echo currentBuild.result
+        }
+
         
 
         stage ('Docker Build') {
