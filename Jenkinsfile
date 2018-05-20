@@ -19,6 +19,8 @@ node {
         
         stage('Check Results'){
             echo currentBuild.result
+            emailext body: '$DEFAULT_CONTENT', recipientProviders: [brokenTestsSuspects(), brokenBuildSuspects(), developers()], subject: '$DEFAULT_SUBJECT'
+            
         }
 
         
