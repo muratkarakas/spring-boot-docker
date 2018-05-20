@@ -81,5 +81,3 @@ pipeline-model-declarative-agent@1.1.1
 pipeline-stage-step@2.3
 build-pipeline-plugin@1.5.8
 credentials@2.1.16
-JIRA@2.5.2
-JiraTestResultReporter@2.0.6
