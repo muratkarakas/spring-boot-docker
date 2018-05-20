@@ -33,7 +33,7 @@ node {
                sh 'docker-compose down'
         }
         stage ('Start New Containers') {
-               sh 'docker-compose up'
+               sh 'docker-compose up -d'
         }
    
 }
