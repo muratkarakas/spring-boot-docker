@@ -22,18 +22,18 @@ node {
                sh 'mvn docker:build -Dmaven.test.skip=true'
         }
         
-        
-        stage('Notify Results'){
-            echo currentBuild.result
-            emailext body: '$DEFAULT_CONTENT', recipientProviders: [brokenTestsSuspects(), brokenBuildSuspects(), developers()], subject: '$DEFAULT_SUBJECT'
-            
-        }
-        
+              
         stage ('Stop Old Containers') {
                sh 'docker-compose down'
         }
         stage ('Start New Containers') {
                sh 'docker-compose up -d'
+        }
+        
+        stage('Notify Results'){
+            echo currentBuild.result
+            emailext body: '$DEFAULT_CONTENT', recipientProviders: [brokenTestsSuspects(), brokenBuildSuspects(), developers()], subject: '$DEFAULT_SUBJECT'
+            
         }
    
 }
