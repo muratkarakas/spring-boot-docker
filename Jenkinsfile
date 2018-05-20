@@ -17,7 +17,7 @@ node {
            allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
         }
         
-        stage(){
+        stage('Check Results'){
        	    echo currentBuild
             echo currentBuild.result
         }
