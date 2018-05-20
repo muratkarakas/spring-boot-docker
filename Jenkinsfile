@@ -18,7 +18,6 @@ node {
         }
         
         stage('Check Results'){
-       	    echo currentBuild
             echo currentBuild.result
         }
 
