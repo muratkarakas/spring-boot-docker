@@ -17,7 +17,7 @@ node {
            allure includeProperties: false, jdk: '', results: [[path: 'target/allure-results']]
         }
         
-        stage('Check Results'){
+        stage('Send Results'){
             echo currentBuild.result
             emailext body: '$DEFAULT_CONTENT', recipientProviders: [brokenTestsSuspects(), brokenBuildSuspects(), developers()], subject: '$DEFAULT_SUBJECT'
             
