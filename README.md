@@ -1,6 +1,11 @@
 # spring-boot-docker
 Simple spring boot application with docker<br />
 run dockerRun.sh <br />
+
+
+
+<b>Jenkins & SonarQube Integration<b><br />
+docker-compose -f ci.yml up  <br />
 install buttler to your local machine => http://www.blog.labouardy.com/butler-cli-import-export-jenkins-plugins-jobs/<br />
 import jenkins plugins after jenkins init => butler plugins import --server localhost:8090 --username admin --password password<br />
 configure jenkins docker setup (http://localhost:8090/configureTools/)  Global Tool Configuration => docker-latest<br />
